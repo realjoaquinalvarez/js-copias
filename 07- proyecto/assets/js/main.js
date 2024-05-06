@@ -7,7 +7,7 @@ let result = 0;
 do{
     year = parseInt(prompt("En que ano naciste?", year));
     
-}while( year < 1910 );
+}while( year < (actualYear - 120) || year > actualYear);
 
 result = actualYear - year;
 
