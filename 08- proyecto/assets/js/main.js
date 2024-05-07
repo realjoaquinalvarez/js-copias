@@ -7,10 +7,18 @@
 let num = 0;
 let result = 0;
 
-
 do{
 
-    num = parseInt(prompt)
-    
-    
+    num = parseInt(prompt("introduce un numero, para ver si es par", 0));
+
 }while( num <= 0);
+
+function isPair(x){
+    if (x%2 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
