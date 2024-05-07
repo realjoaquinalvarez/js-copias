@@ -21,4 +21,21 @@ function isPair(x){
     }
 }
 
+result = isPair(num);
+resultBox = document.querySelector("result");
+
+if ( result == true ){
+    
+    let succes = "El numero" + num + "es par";
+    console.log(succes);
+    alert(succes)
+    
+} else {
+
+    let failded = "El numero" + num + "es impart";
+    console.log(failded);
+    
+}
+
+
 
