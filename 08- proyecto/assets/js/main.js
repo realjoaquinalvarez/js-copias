@@ -6,36 +6,35 @@
 
 let num = 0;
 let result = 0;
-
+// Asignar numero mayor a cero
 do{
 
     num = parseInt(prompt("introduce un numero, para ver si es par", 0));
 
 }while( num <= 0);
-
-function isPair(x){
+// Funcion par o impar
+function isPairOrNot(x){
     if (x%2 == 0) {
         return true;
     } else {
         return false;
     }
 }
-
-result = isPair(num);
-resultBox = document.querySelector("result");
+// Llamar la funcion y seleccionar etiqueta
+result = isPairOrNot(num);
+let resultBox = document.querySelector(".result");
+// Crear mensaje para imprimir en etiqueta (impart por default)
+let message = "El numero" + num + "es impar";
 
 if ( result == true ){
     
-    let succes = "El numero" + num + "es par";
-    console.log(succes);
-    alert(succes)
-    
-} else {
+    message = "El numero " +  num + " es par";
 
-    let failded = "El numero" + num + "es impart";
-    console.log(failded);
-    
-}
+};
+
+console.log(message);
+alert(message);
+resultBox.innerHTML = `<p> ${message} </p>`;
 
 
 
