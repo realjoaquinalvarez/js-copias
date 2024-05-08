@@ -6,7 +6,7 @@ function sumAll(...numbers){
     let resultBox = document.querySelector("#result");
     let numbersBox = document.querySelector("#numbers");
     
-    numbersBox = "Los numeros que se han utilizado para los resultados son estos: "
+    numbersBox.innerHTML = "<p> Los numeros que se han utilizado para los resultados son estos: </p>";
     
     for( let count = 0; count < numbers.length; count++ ){
 
@@ -14,7 +14,7 @@ function sumAll(...numbers){
 
         numbersBox.innerHTML += numbers[count];
 
-        if( count === numbers.length - 1 ) numbersBox.innerHTML += ', ';
+        if( count !== numbers.length - 1 ) numbersBox.innerHTML += ', ';
     };
 
     
