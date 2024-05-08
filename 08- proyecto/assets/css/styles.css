@@ -19,16 +19,15 @@ body {
     text-align: center;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    animation: slideIn 1s ease forwards;
-    opacity: 0;
-    transform: translateY(30px);
     animation: fadeInBox 0.8s ease forwards;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .result:hover {
     transform: scale(1.1) rotate(1deg);
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7);
-    background-color: #1b1b3a;
+    background-color: #2a2a4a;
 }
 
 /* Texto dentro del resultado */
@@ -38,21 +37,17 @@ body {
     font-weight: 700;
     margin: 0;
     animation: fadeInText 1.2s ease forwards;
-    opacity: 0;
+    opacity: 1;
+    transform: translateY(0);
+    transition: color 0.3s ease;
+}
+
+.result:hover p {
+    color: #00d9ff; /* Cambia de color sin desaparecer */
+    letter-spacing: 1px;
 }
 
 /* Animaciones para la caja */
-@keyframes slideIn {
-    0% {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 @keyframes fadeInBox {
     0% {
         opacity: 0;
@@ -73,21 +68,6 @@ body {
     100% {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-/* Animaciones al hacer hover */
-.result:hover p {
-    animation: hoverText 0.4s ease forwards;
-    color: #00d9ff;
-}
-
-@keyframes hoverText {
-    0% {
-        letter-spacing: 0px;
-    }
-    100% {
-        letter-spacing: 2px;
     }
 }
 
