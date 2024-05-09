@@ -24,15 +24,19 @@ body {
     font-weight: bold;
     color: #4caf50;
     margin-bottom: 10px;
+
   }
-  
   /* Estilo para los números */
   #numbers {
-    font-size: 1rem;
-    color: #555;
-    padding: 10px;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
+      font-size: 1rem;
+      color: #555;
+      padding: 10px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 20px;
+    }
+    
+.resultadoDiv {
+    background-color: #002e25;
+}
