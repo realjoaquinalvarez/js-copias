@@ -1,7 +1,6 @@
 
 let animales = ["perro", "gato", "leon", "tigre"]
 
-
 const recorrerMostrar = () => {
 
     document.write("<h1>Proyecto 12 JS - Joaquin Alvarez</h1>")
@@ -15,9 +14,10 @@ const recorrerMostrar = () => {
     // }
 
 
-    animales.forEach((animal) => {
+    animales.forEach((animal, indice) => {
 
-        parrafo = `<p> - ${animal} </p>`;
+        animalUpper = 
+        parrafo = `<p> - El animal es numero ${indice + 1} : ${animal.toUpperCase()} </p>`;
         
         document.write(parrafo);
 
