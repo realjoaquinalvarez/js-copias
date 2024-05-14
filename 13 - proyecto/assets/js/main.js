@@ -13,46 +13,73 @@ let concesionario = [
     }
 ];
 
-let marcaModelos = document.querySelector('.concesionario');
-let modelos = document.querySelector('.modelos');
 
-function recorrerConcesionario( concesionario ){
-    
-    // console.log( concesionario[0].modelos[0])
-    
-    for( let i = 0; i < concesionario.length ; i++){
-        
-        let numOpcion = i + 1;
-        let parrafo =  `
-        <h1> Opcion ${ numOpcion}: ${ concesionario[i].marca } </h1> 
-        <ul>
-        `
-        marcaModelos.innerHTML += parrafo;
-        
-        for ( let n = 0; n < concesionario[i].modelos.length ; n++ ){
 
-            opciones = `<li> - Modelo ${n} : ${concesionario[i].modelos[n] } </li>`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let marcaModelos = document.querySelector('.concesionario');
+// let modelos = document.querySelector('.modelos');
+
+// function recorrerConcesionario( concesionario ){
+    
+//     // console.log( concesionario[0].modelos[0])
+    
+//     for( let i = 0; i < concesionario.length ; i++){
+        
+//         let numOpcion = i + 1;
+//         let parrafo =  `
+//         <h1> Opcion ${ numOpcion}: ${ concesionario[i].marca } </h1> 
+//         <ul>
+//         `
+//         marcaModelos.innerHTML += parrafo;
+        
+//         for ( let n = 0; n < concesionario[i].modelos.length ; n++ ){
+
+//             opciones = `<li> - Modelo ${n} : ${concesionario[i].modelos[n] } </li>`;
             
-            marcaModelos.innerHTML += opciones;
+//             marcaModelos.innerHTML += opciones;
             
-        }
-        marcaModelos.innerHTML += '</ul>';
+//         }
+//         marcaModelos.innerHTML += '</ul>';
 
-    }
-
-    // for( let i = 0; i < concesionario.length ; i++){
-        
-    //     console.log(concesionario[i].marca)
-
-    // }
-
-    // concesionario.forEach((auto, numero) => {
-
-    //     console.log( auto.marca )
-        
-    // });
+//     }
     
-}
+// }
 
-recorrerConcesionario(concesionario);
+// recorrerConcesionario(concesionario);
 
