@@ -12,3 +12,7 @@ p {
     
 }
 
+li {
+    color: white;
+    list-style: none;
+}
