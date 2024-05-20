@@ -51,4 +51,20 @@ body {
     padding: 0.7rem 1rem;
     border-radius: 0.5rem;
     cursor: pointer;
+    transition: all 100ms ease-in-out;
+}
+
+.layout__btn--stop{
+    background-color: #CCCCCC;
+    color: white;
+}
+.layout__btn--start:hover {
+    background-color: rgb(22, 140, 22);
+    transform: scale(1.1);
+    
+}
+.layout__btn--stop:hover {
+    background-color: rgb(17, 14, 14);
+    transform: scale(1.1);
+    
 }
