@@ -11,6 +11,23 @@ let minutes = 0;
 let seconds = 0;
 
 // Funcion para iniciar cronometro
+let start = () => {
+    
+    setInterval(() => {
+        seconds ++;
 
+        
+        if( seconds == 60 ){
+            minutes++
+            seconds = 0;
+        };
+        
+        console.log(`Es el minuto ${minutes }, segundo ${seconds}`)
 
+    }, 1000);
+    
+};
 
+btnStart.addEventListener("click", () => {
+    start();
+})
