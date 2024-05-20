@@ -10,11 +10,39 @@ El cronometro se parara cuando llegue a los 60 minutos o cuando el usuario le de
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title>Proyecto N</title>
+
+    <script src="./assets/js/main.js" defer></script>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    
+    <title>Proyecto 18</title>
 </head>
 <body>
-    <pre>
+    <div class="layout">
 
-    </pre>    
+        <main class="layout__main">
+
+            <section class="layout__container--crono">
+                <p class="layout__crono">
+                    <span class="crono__min">00</span>
+                    <span class="crono__separator">:</span>
+                    <span class="crono__sec">00</span>
+                </p>
+            </section>
+            
+            <section class="layout__btns">
+                <button class="layout__btn--start">
+                    Iniciar
+                </button>
+                
+                <button class="layout__btn--stop">
+                    Parar
+                </button>
+            </section>
+            
+        </main>
+        
+    </div>
+    
 </body>
 </html>
