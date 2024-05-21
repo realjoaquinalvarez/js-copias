@@ -35,12 +35,17 @@ let start = () => {
             }
 
             if( minutes >= 60 ){
-                clearInterval(time)
-                alert('Haz excedido el tiempo limite de 60 minutos');
+                clearInterval(time);
+                cronoSeg.innerHTML = '00';
+                cronoMin.innerHTML = '00';
+                let alertInterval = setInterval(() => {
+                    alert('Haz excedido el tiempo limite de 60 minutos');
+                    clearInterval(alertInterval);
+                }, 1000)                
                 return;
             }
             
-        }, 1000);
+        }, 1);
     }
     
 };
