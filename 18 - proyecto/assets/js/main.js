@@ -16,6 +16,7 @@ let start = () => {
     if(!time) {
         time = setInterval(() => {
             seconds ++;
+
             if(seconds < 10) {
                 cronoSeg.innerHTML = '0' + seconds;
             } else {
@@ -25,25 +26,19 @@ let start = () => {
             if( seconds == 60 ){
                 minutes++
                 seconds = 0;
-                if( minutes < 10 ){
-                    cronoMin.innerHTML = '0' + minutes;
-                } else {
-                    cronoMin.innerHTML = minutes;
-                }
             };
             
+            if( minutes < 10 ){
+                cronoMin.innerHTML = '0' + minutes;
+            } else {
+                cronoMin.innerHTML = minutes;
+            }
 
             if( minutes >= 60 ){
                 clearInterval(time)
-                minutes = 0;
-                seconds = 0;
-                cronoSeg.innerHTML = '0' + seconds;
-                cronoMin.innerHTML = '0' + minutes ;
                 alert('Haz excedido el tiempo limite de 60 minutos');
                 return;
             }
-            
-            
             
         }, 1000);
     }
@@ -55,5 +50,8 @@ btnStart.addEventListener("click", () => {
 })
 
 btnStop.addEventListener("click", () => {
-    minutes = 60;
+    if(time){
+        clearInterval(time);
+        time = null;
+    }
 })
