@@ -6,7 +6,7 @@ let subtitle = document.querySelector("#subtitle");
 let description = document.querySelector("#description");
 let form = document.querySelector(".form__create")
 
-let arrayArticles = [];
+let new_articles = [];
 
 function createArticle(){   
     form.addEventListener("submit", (e) => {
@@ -19,10 +19,14 @@ function createArticle(){
                 description: description.value,
             };
 
-            arrayArticles.push(article);
+            new_articles.push(article);
             localStorage.setItem("articles", JSON.stringify(new_articles));
+            
+        }else{
+            alert('Faltan datos por rellenar en el formulario');
         }
-        console.log(arrayArticles)
+
+        console.log(new_articles)
     }); 
 }
 
