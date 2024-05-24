@@ -22,95 +22,52 @@ Los articulos no deberan borrarse al refrescar la pagina (usa el LocalStorage   
     <title>Proyecto 19 JS</title>
 </head>
 <body>
+    <section class="layout__container-form">
 
-    <div class="layout__articles">
+        <form class="form__create">
 
-        <section class="layout__contaner-form">
+            <div class="create__container">
+                <label class="create__label" for="title">Titulo</label>
+                <input class="create__input" type="text" id="title" required>
+            </div>
 
-            <form class="form__create">
+            <div class="create__container">
+                <label class="create__label" for="subtitle">Subtitulo</label>
+                <input class="create__input" type="text" id="subtitle" required>
+            </div>
 
-                <div class="create__container">
-                    <label class="create__label" for="title">Titulo</label>
-                    <input class="create__input" type="text" id="title" >
-                </div>
+            <div class="create__container">
+                <label class="create__label" for="description">Descripcion</label>
+                <textarea class="create__input" id="description" required></textarea>
+            </div>
 
-                <div class="create__container">
-                    <label class="create__label" for="subtitle">Subtitulo</label>
-                    <input class="create__input" type="text" id="subtitle" required>
-                </div>
+            <input class="create__btn" type="submit" value="Crear articulo">
+            
+        </form>
+        
+    </section>
 
-                <div class="create__container">
-                    <label class="create__label" for="description">Descripcion</label>
-                    <textarea class="create__input" id="description" required></textarea>
-                </div>
-
-                <input class="create__btn" type="submit" value="Crear articulo">
+    <div class="layout">
+        <section class="layout__articles">
+            <article class="layout__card">
+                <header class="card__header">
+                    <p class="header__author">Jose Alvarez</p>
+                </header>
                 
-            </form>
-            
-        </section>
-
-        <article class="layout__card">
-            <header class="card__header">
-                <p class="header__author">Jose Alvarez</p>
-            </header>
-            
-            <div class="card__content">
-                <h2 class="content__title">Caja de prueba</h2>
-
-                <p class="content__description">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit quae illo iste at reprehenderit
-                </p>
-
-                <button class="content__btn">Cambiar estilos</button>
-            </div>
-            
-        </article>
-
-    </div>
-
-    <div class="layout">
-
-        <article class="layout__card">
-            <header class="card__header">
-                <p class="header__author">Jose Alvarez</p>
-            </header>
-            
-            <div class="card__content">
-                <h2 class="content__title">Caja de prueba</h2>
-
-                <p class="content__description">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit quae illo iste at reprehenderit
-                </p>
-
-                <button class="content__btn">Cambiar estilos</button>
-            </div>
-            
-        </article>
-
-    </div>
-
-    <div class="layout">
-
-        <article class="layout__card">
-            <header class="card__header">
-                <p class="header__author">Jose Alvarez</p>
-            </header>
-            
-            <div class="card__content">
-                <h2 class="content__title">Caja de prueba</h2>
-
-                <p class="content__description">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit quae illo iste at reprehenderit
-                </p>
-
-                <button class="content__btn">Cambiar estilos</button>
-            </div>
-            
-        </article>
-
-    </div>
+                <div class="card__content">
+                    <h2 class="content__title">Caja de prueba</h2>
     
+                    <p class="content__description">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit quae illo iste at reprehenderit
+                    </p>
+    
+                    <button class="content__btn">Cambiar estilos</button>
+                </div>
+            </article>
+        </section>
+    </div>
+
+   
 
 </body>
 </html>

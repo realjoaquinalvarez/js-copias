@@ -67,10 +67,17 @@ body{
     margin-bottom: 1rem;
 }
 
-.layout__contaner-form {
+.layout__container-form {
 
     width: 100%;
     position: absolute;
     left: 10px;
 
+}
+
+.layout__articles{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); /* Distribuye automáticamente */
+    gap: 2rem; /* Espaciado entre los artículos */
+    width: 100%;
 }
