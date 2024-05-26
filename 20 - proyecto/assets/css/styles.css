@@ -1,12 +1,49 @@
+/* Estilos generales */
 body {
-    background-color: rgb(27, 26, 42);
+    font-family: Arial, sans-serif;
+    background-color: #e8f0ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+.layout__main {
     text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
 }
 
-h1, p {
-    color: white;
+/* Título */
+.main__title {
+    font-family: 'Arial Black', sans-serif;
+    font-weight: bold;
+    font-size: 28px;
+    color: #0078d4;
+    margin-bottom: 15px;
 }
 
-pre {
-    color: white;
+/* Fecha */
+.main__date {
+    font-size: 36px;
+    font-family: 'Arial Black', sans-serif;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Hora */
+.main__hour {
+    
+    font-size: 24px;
+    font-family: 'Arial Black', sans-serif;
+    font-weight: bold;
+    color: #000;
+    margin-top: 10px;
 }
