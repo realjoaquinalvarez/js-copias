@@ -2,8 +2,6 @@
 let dateDOM = document.querySelector('.main__date');
 let hourDOM = document.querySelector('.main__hour');
 
-let observadorMinutos = new Date().getMinutes();
-let aComparar = 0;
 
 let myDate = () => {
 
@@ -29,11 +27,7 @@ let myDate = () => {
 };
 
 setInterval( () => {
-    observadorMinutos = new Date().getMinutes();
-    if( observadorMinutos !== aComparar ){
         myDate();
-    }
-    
 }, 1000);
     
     
