@@ -1,49 +1,109 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #e8f0ff;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #303052);
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    color: #fff;
+    overflow: hidden;
 }
 
 /* Contenedor principal */
 .layout__main {
     text-align: center;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1s ease-out;
+    max-width: 500px;
     width: 100%;
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out;
+}
+
+.layout__main:hover {
+    transform: scale(1);
+    box-shadow: 0 15px 30px rgba(0, 255, 255, 0.6), 0 0 50px rgba(0, 255, 255, 0.8);
 }
 
 /* Título */
 .main__title {
-    font-family: 'Arial Black', sans-serif;
-    font-weight: bold;
-    font-size: 28px;
-    color: #0078d4;
-    margin-bottom: 15px;
+    font-size: 32px;
+    color: #00ffff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    animation: glow 2s infinite alternate;
 }
 
 /* Fecha */
 .main__date {
-    font-size: 36px;
-    font-family: 'Arial Black', sans-serif;
+    font-size: 48px;
     font-weight: bold;
-    color: #000;
+    color: #ffffff;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+    margin-bottom: 10px;
+    animation: pulse 1.5s infinite;
 }
 
 /* Hora */
 .main__hour {
-    
-    font-size: 24px;
-    font-family: 'Arial Black', sans-serif;
+    font-size: 32px;
     font-weight: bold;
-    color: #000;
+    color: #00bcd4;
+    text-shadow: 0 0 5px #00bcd4, 0 0 15px #00bcd4;
     margin-top: 10px;
+    animation: pulse 1.5s infinite alternate;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+    100% {
+        text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .main__date {
+        font-size: 36px;
+    }
+    .main__hour {
+        font-size: 24px;
+    }
 }

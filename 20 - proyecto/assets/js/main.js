@@ -1,33 +1,28 @@
-
 let dateDOM = document.querySelector('.main__date');
 let hourDOM = document.querySelector('.main__hour');
 
+let lastRenderedMinute = null;
 
-let myDate = () => {
-
+let updateDateAndTime = () => {
     let date = new Date();
     let day = date.getDate();
-    let month = date.getMonth()+1;
+    let month = date.getMonth() + 1; // Mes comienza en 0
     let year = date.getFullYear();
     let hour = date.getHours();
     let minutes = date.getMinutes();
 
-    aComparar = minutes;
+    if (minutes === lastRenderedMinute) return;
+    lastRenderedMinute = minutes;
 
-    if(day < 10 ) day = '0' + day;
-    if(month < 10 ) month = '0' + month;
-    
-    if(hour < 10 ) hour = '0' + hour;
-    if(minutes < 10 ) minutes = '0' + minutes;
+    day = day < 10 ? '0' + day : day;
+    month = month < 10 ? '0' + month : month;
+    hour = hour < 10 ? '0' + hour : hour;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
 
-    
     dateDOM.innerHTML = `${day}/${month}/${year}`;
-    hourDOM.innerHTML = `${hour}:${minutes}`
-    
+    hourDOM.innerHTML = `${hour}:${minutes}`;
 };
 
-setInterval( () => {
-        myDate();
-}, 1000);
-    
-    
+setInterval(updateDateAndTime, 1000);
+
+updateDateAndTime();
