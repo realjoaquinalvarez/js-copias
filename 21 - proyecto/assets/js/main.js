@@ -24,11 +24,11 @@ cajas.forEach((caja, i) => {
 
 estanteriaDom.forEach((estanteria, i) => {
 
-    estanteria.addEventListener("dragover", e => {
+    estanteria.addEventListener("dragover", function(e){
         e.preventDefault();        
     });
     
-    estanteria.addEventListener("drop", e => {
+    estanteria.addEventListener("drop", function (e){
         e.preventDefault();
         
         let idCajaDrag = e.dataTransfer.getData("dragId");
@@ -37,10 +37,11 @@ estanteriaDom.forEach((estanteria, i) => {
 
             let cajaNodo = document.querySelector("#" + idCajaDrag);
 
-            if(e.target.childElementCount === 0){
-                e.target.appendChild(cajaNodo);
-                e.target.style.boxShadow = "none";
+            if(this.childElementCount === 0){
+                this.appendChild(cajaNodo);
+                this.style.boxShadow = "none";
             } else {
+                console.log(this)
                 alert("esta estanteria esta ocupada!!");
             }
 
