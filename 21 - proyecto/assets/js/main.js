@@ -41,12 +41,20 @@ estanteriaDom.forEach((estanteria, i) => {
                 this.appendChild(cajaNodo);
                 this.style.boxShadow = "none";
             } else {
-                console.log(this)
                 alert("esta estanteria esta ocupada!!");
-            }
+            };
 
+            estanteriaDom.forEach(estanteria => {
+                if(estanteria.lastChild == null) {
+                    estanteria.style.boxShadow = "0px 0px 8px black inset";
+                }
+            });
+
+            if(inventarioDom.innerHTML.trim() == ""){
+                alert("Todas las cajas han sido guardadas");
+            }
+            
         }
-        
         
     });
     
