@@ -1,20 +1,18 @@
-let mainInput = document.querySelector('main__input');
-let checkIcon = document.querySelector('icons__check');
-let xMark = document.querySelector('icons__xmark');
+let mainInput = document.querySelector('.main__input');
+let checkIcon = document.querySelector('.icons__check');
+let xMark = document.querySelector('.icons__xmark');
 
-mainInput.addEventListener('keydown', () => {
+mainInput.addEventListener( 'input', (e) => {
 
-    let text = mainInput.value;
+    let input = e.target.value;
     
-    let validacion = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text);
+    let isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input);
 
-    if(validacion){
+    if(isValid){
         checkIcon.classList.add('visible');
-        xMark.classList.remove('visible');
+        xMark.classList.remove('visible')
     }else{
-        checkIcon.classList.remove('visible');
         xMark.classList.add('visible');
+        checkIcon.classList.remove('visible')
     }
-    
 });
-
