@@ -1,0 +1,82 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+.layout {
+    position: relative;
+    width: 400px;
+}
+
+/* Estilo del input */
+.main__input {
+    width: 100%;
+    padding: 10px 50px 10px 15px; /* Ajustar espacio para los íconos */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+    background-color: white;
+}
+
+/* Cambia el borde al enfocarse */
+.main__input:focus {
+    border-color: #0078d4;
+}
+
+/* Contenedor de íconos */
+.main__icons {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 30px;
+}
+
+/* Icono base */
+.main__icons i {
+    position: absolute; /* Superponer íconos */
+    font-size: 20px;
+    opacity: 0; /* Ocultos inicialmente */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: scale(0.8); /* Animación de entrada */
+}
+
+/* Icono de éxito (check) */
+.icons__check {
+    color: #28a745; /* Verde */
+}
+
+/* Icono de error (xmark) */
+.icons__xmark {
+    color: #dc3545; /* Rojo */
+}
+
+/* Mostrar icono de éxito */
+.icons__check.visible {
+    opacity: 1;
+    transform: scale(1); /* Animación de aparición */
+}
+
+/* Mostrar icono de error */
+.icons__xmark.visible {
+    opacity: 1;
+    transform: scale(1); /* Animación de aparición */
+}
