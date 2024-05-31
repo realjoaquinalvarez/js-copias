@@ -6,35 +6,52 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #f8f9fa;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 /* Contenedor principal */
 .layout {
     position: relative;
     width: 400px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 /* Estilo del input */
 .main__input {
     width: 100%;
-    padding: 10px 50px 10px 15px; /* Ajustar espacio para los íconos */
+    padding: 15px 60px 15px 20px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
     border-radius: 25px;
     outline: none;
-    transition: border-color 0.3s ease-in-out;
-    background-color: white;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
-/* Cambia el borde al enfocarse */
+.main__input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Cambia el fondo y la sombra al enfocarse */
 .main__input:focus {
-    border-color: #0078d4;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 /* Contenedor de íconos */
@@ -52,31 +69,33 @@ body {
 
 /* Icono base */
 .main__icons i {
-    position: absolute; /* Superponer íconos */
+    position: absolute;
     font-size: 20px;
-    opacity: 0; /* Ocultos inicialmente */
+    opacity: 0;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    transform: scale(0.8); /* Animación de entrada */
+    transform: scale(0.8);
 }
 
 /* Icono de éxito (check) */
 .icons__check {
-    color: #28a745; /* Verde */
+    color: #4caf50; /* Verde brillante */
+    text-shadow: 0 0 5px #4caf50;
 }
 
 /* Icono de error (xmark) */
 .icons__xmark {
-    color: #dc3545; /* Rojo */
+    color: #ff5252; /* Rojo neón */
+    text-shadow: 0 0 5px #ff5252;
 }
 
 /* Mostrar icono de éxito */
 .icons__check.visible {
     opacity: 1;
-    transform: scale(1); /* Animación de aparición */
+    transform: scale(1);
 }
 
 /* Mostrar icono de error */
 .icons__xmark.visible {
     opacity: 1;
-    transform: scale(1); /* Animación de aparición */
+    transform: scale(1);
 }
