@@ -1,40 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
     
+    <!-- Font Awesome para los íconos de redes sociales -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
-    <title>Redes Sociales</title>
+    <title>Seguidores en Redes Sociales</title>
 </head>
 <body>
-    <div class="container">
+
+    <div class="socials">
         <!-- Tarjeta de Facebook -->
-        <div class="social-card facebook">
-            <i class="fab fa-facebook-f"></i>
-            <h3>Facebook</h3>
-            <p><span class="followers" data-followers="12000">0</span> seguidores</p>
+        <div class="socials__card socials__card--facebook">
+            <i class="socials__icon fab fa-facebook-f"></i>
+            <h3 class="socials__name">Facebook</h3>
+            <p class="socials__followers"><span class="socials__count" data-count="12000">0</span> seguidores</p>
         </div>
 
         <!-- Tarjeta de Twitter -->
-        <div class="social-card twitter">
-            <i class="fab fa-twitter"></i>
-            <h3>Twitter</h3>
-            <p><span class="followers" data-followers="8500">0</span> seguidores</p>
+        <div class="socials__card socials__card--twitter">
+            <i class="socials__icon fab fa-twitter"></i>
+            <h3 class="socials__name">Twitter</h3>
+            <p class="socials__followers"><span class="socials__count" data-count="8500">0</span> seguidores</p>
         </div>
 
         <!-- Tarjeta de Instagram -->
-        <div class="social-card instagram">
-            <i class="fab fa-instagram"></i>
-            <h3>Instagram</h3>
-            <p><span class="followers" data-followers="15600">0</span> seguidores</p>
+        <div class="socials__card socials__card--instagram">
+            <i class="socials__icon fab fa-instagram"></i>
+            <h3 class="socials__name">Instagram</h3>
+            <p class="socials__followers"><span class="socials__count" data-count="15600">0</span> seguidores</p>
         </div>
     </div>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="./assets/js/main.js"></script>
 </body>
 </html>
