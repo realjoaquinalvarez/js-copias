@@ -1,28 +1,27 @@
+const counters = document.querySelectorAll('.socials__count');
 
-let countSpans = document.querySelectorAll('.socials__count');
+function animateCounter(counterElement, step, targetValue) {
+    
+    let currentValue = 0;
 
+    // Guardamos el identificador del intervalo
+    const intervalId = setInterval(() => {
 
-function intervaloSubida( countSpan, escala, followersValue, sumador) {
-    setInterval(() => {
-        if( sumador <= followersValue ) {
-            countSpan.innerHTML = sumador;
-            sumador += escala;
-        } else clearInterval(intervaloSubida)
+        if (currentValue <= targetValue) {
+            counterElement.innerHTML = Math.min(Math.floor(currentValue), targetValue); // Ajusta al valor exacto si supera el objetivo
+            currentValue += step;
+        } else {
+            counterElement.innerHTML = targetValue; // Asegura el valor final exacto
+            clearInterval(intervalId); // Detenemos el intervalo correctamente
+        }
+        
     }, 10);
 }
 
-countSpans.forEach(countSpan => {
+counters.forEach(counterElement => {
 
-    let followersValue = countSpan.getAttribute('data-count')
-    let escala = followersValue / 100;
-    let sumador = 0;
+    const targetValue = parseInt(counterElement.getAttribute('data-count'), 10); 
+    const step = targetValue / 100; // Incremento proporcional
     
-    intervaloSubida( countSpan, escala, followersValue, sumador );
-
+    animateCounter(counterElement, step, targetValue);
 });
-
-
-
-
-
-
