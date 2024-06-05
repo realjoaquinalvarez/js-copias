@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Barra de progreso con botones</title>
+  
+  <link rel="stylesheet" href="./assets/css/reset.css" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+
+  <script src="./assets/js/main.js" defer></script>
+  
+</head>
+<body>
+  <div class="container">
+    <div class="progressbar">
+      <!-- Línea de progreso -->
+      <div class="progress" id="progress"></div>
+      
+      <!-- Cada “paso” de la barra -->
+      <div class="circle active">
+        <span class="check">&#10003;</span>
+      </div>
+      <div class="circle">
+        <span class="check">&#10003;</span>
+      </div>
+      <div class="circle">
+        <span class="check">&#10003;</span>
+      </div>
+      <div class="circle">
+        <span class="check">&#10003;</span>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button id="btnPrev" disabled>Anterior</button>
+      <button id="btnNext">Siguiente</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

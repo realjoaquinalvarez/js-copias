@@ -1,14 +1,14 @@
 const counters = document.querySelectorAll('.socials__count');
 
 function animateCounter(counterElement, step, targetValue) {
-    
+
     let currentValue = 0;
 
     // Guardamos el identificador del intervalo
     const intervalId = setInterval(() => {
 
         if (currentValue <= targetValue) {
-            counterElement.innerHTML = Math.min(Math.floor(currentValue), targetValue); // Ajusta al valor exacto si supera el objetivo
+            counterElement.innerHTML = currentValue; // Ajusta al valor exacto si supera el objetivo
             currentValue += step;
         } else {
             counterElement.innerHTML = targetValue; // Asegura el valor final exacto

@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+    overflow: hidden;
+  }
+  
+  .card {
+    position: relative;
+    width: 600px;
+    max-width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out, height 0.5s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .card-content {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .card-text {
+    flex: 1;
+  }
+  
+  .card-image img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .card-details {
+    display: none;
+    padding: 20px;
+  }
+  
+  #expand-toggle:checked + .card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    z-index: 1000;
+    overflow: auto;
+  }
+  
+  #expand-toggle:checked + .card .card-content {
+    flex-direction: column;
+  }
+  
+  #expand-toggle:checked + .card .card-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+  
+  #expand-toggle:checked + .card .card-details {
+    display: block;
+  }
+  
+  .close-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .close-btn:hover {
+    background-color: #555;
+  }
+  
