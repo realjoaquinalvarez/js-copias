@@ -1,88 +1,101 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f9;
-    overflow: hidden;
-  }
-  
-  .card {
-    position: relative;
-    width: 600px;
-    max-width: 100%;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out, height 0.5s ease-in-out;
-    cursor: pointer;
-  }
-  
-  .card-content {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .card-text {
-    flex: 1;
-  }
-  
-  .card-image img {
-    width: 200px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .card-details {
-    display: none;
-    padding: 20px;
-  }
-  
-  #expand-toggle:checked + .card {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0;
-    z-index: 1000;
-    overflow: auto;
-  }
-  
-  #expand-toggle:checked + .card .card-content {
-    flex-direction: column;
-  }
-  
-  #expand-toggle:checked + .card .card-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 0;
-  }
-  
-  #expand-toggle:checked + .card .card-details {
-    display: block;
-  }
-  
-  .close-btn {
-    display: block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  
-  .close-btn:hover {
-    background-color: #555;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  width: 300px;
+}
+
+/* Contenedor de la línea vertical (o puedes usar horizontal) */
+.progressbar {
+  position: relative;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Si prefieres una barra horizontal, usa row y ajusta la lógica */
+}
+
+/* Línea que muestra el “progreso” */
+.progress {
+  position: absolute;
+  width: 4px;            /* Grosor de la línea */
+  background-color: #00a294;
+  top: 0;
+  bottom: 0;
+  left: 50%;             /* Centrar la línea vertical */
+  transform: translateX(-50%);
+  transition: height 0.4s ease;
+  z-index: -1;
+  height: 0;            /* Inicia con 0 de alto (solo se rellenará con JavaScript) */
+}
+
+/* Cada “círculo” en la barra */
+.circle {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  cursor: default;
+  transition: all 0.4s ease;
+}
+
+/* El icono de check dentro del círculo */
+.check {
+  color: transparent; /* Se hace visible solo cuando esté 'active' */
+  font-size: 18px;
+}
+
+/* Cuando un círculo está activo, marcamos el check y coloreamos el borde */
+.circle.active {
+  border-color: #00a294;
+}
+.circle.active .check {
+  color: #00a294;
+}
+
+/* Botones */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #00a294;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+button:hover:enabled {
+  background-color: #00877d;
+}
