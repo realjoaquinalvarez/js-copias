@@ -1,13 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title>Proyecto N</title>
+  <meta charset="UTF-8" />
+  <title>Chat con Carga Inicial</title>
+  <style>
+    /* Reset básico (opcional) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Clase para ocultar por completo */
+    .hidden {
+      display: none;
+    }
+
+    /* Loader */
+    .loader-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #f5f6fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999; /* Lo que necesites */
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid #ddd;
+      border-top-color: #4a4a8c;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Chat */
+    .chat-container {
+      width: 90%;
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 20px;
+      background-color: #f9f9fa;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .messages {
+      max-height: 400px;
+      overflow-y: auto;
+      background-color: #fafbfd;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #eee;
+    }
+
+    .message {
+      background-color: #fff;
+      padding: 8px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      border: 1px solid #eee;
+    }
+
+    .message strong {
+      color: #4a4a8c;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .input-container {
+      display: flex;
+      border-top: 1px solid #ccc;
+      padding-top: 8px;
+    }
+
+    #messageInput {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .input-container button {
+      background-color: #4a4a8c;
+      color: #fff;
+      border: none;
+      padding: 0 16px;
+      cursor: pointer;
+      border-radius: 0 4px 4px 0;
+      transition: background-color 0.3s ease;
+    }
+
+    .input-container button:hover {
+      background-color: #3a3a75;
+    }
+  </style>
 </head>
 <body>
-    <pre>
+  <!-- Contenedor del loader (spinner) -->
+  <div class="loader-container" id="loader">
+    <div class="spinner"></div>
+  </div>
 
-    </pre>    
+  <!-- Contenedor del chat (inicialmente oculto) -->
+  <div class="chat-container hidden" id="chat">
+    <!-- Mensajes iniciales -->
+    <div class="messages" id="messages">
+      <div class="message">
+        <strong>Víctor Robles</strong>
+        <p>Bienvenido a este curso</p>
+      </div>
+    </div>
+
+    <!-- Form para enviar mensaje -->
+    <form id="messageForm" class="input-container">
+      <input
+        type="text"
+        id="messageInput"
+        placeholder="Escribe tu mensaje aquí..."
+      />
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const loader = document.getElementById("loader");
+      const chat = document.getElementById("chat");
+      const messageForm = document.getElementById("messageForm");
+      const messageInput = document.getElementById("messageInput");
+      const messages = document.getElementById("messages");
+
+      // Ocultar loader tras 5s
+      setTimeout(() => {
+        // 1) Opción A: Quitar la clase para ocultarlo con display: none
+        loader.classList.add("hidden");
+        // 2) Opción B: Eliminarlo totalmente del DOM
+        // loader.remove(); 
+
+        // Mostrar chat
+        chat.classList.remove("hidden");
+      }, 5000);
+
+      // Envío de mensajes
+      messageForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const text = messageInput.value.trim();
+        if (text !== "") {
+          const newMessage = document.createElement("div");
+          newMessage.classList.add("message");
+          newMessage.innerHTML = `
+            <strong>Tú</strong>
+            <p>${text}</p>
+          `;
+          messages.appendChild(newMessage);
+
+          messageInput.value = "";
+          messages.scrollTop = messages.scrollHeight;
+        }
+      });
+    });
+  </script>
 </body>
 </html>

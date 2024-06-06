@@ -1,12 +1,107 @@
-body {
-    background-color: rgb(27, 26, 42);
-    text-align: center;
-}
+/* 
+   EJEMPLO de estilos básicos. 
+   Asume que reset.css ya hace un reseteo general.
+*/
 
-h1, p {
-    color: white;
-}
-
-pre {
-    color: white;
-}
+/* Ocultar elementos */
+.hidden {
+    display: none;
+  }
+  
+  /* Contenedor del loader (spinner) */
+  .loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f5f6fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Spinner circular */
+  .spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #ddd;
+    border-top-color: #4a4a8c;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Contenedor principal del chat */
+  .chat-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: #f9f9fa;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Sección donde se muestran los mensajes */
+  .messages {
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #fafbfd;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #eee;
+  }
+  
+  /* Cada mensaje */
+  .message {
+    background-color: #fff;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+  }
+  
+  /* Nombre de usuario en negrita */
+  .message strong {
+    color: #4a4a8c;
+    display: block;
+    margin-bottom: 3px;
+  }
+  
+  /* Contenedor del input y el botón */
+  .input-container {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding-top: 8px;
+  }
+  
+  /* Input de texto */
+  #messageInput {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  /* Botón de enviar */
+  .input-container button {
+    background-color: #4a4a8c;
+    color: #fff;
+    border: none;
+    padding: 0 16px;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .input-container button:hover {
+    background-color: #3a3a75;
+  }
+  
