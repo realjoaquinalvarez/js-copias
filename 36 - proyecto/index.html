@@ -4,20 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Notas</title>
+  
+  <!-- Estilos -->
   <link rel="stylesheet" href="./assets/css/reset.css" />
   <link rel="stylesheet" href="./assets/css/styles.css" />
+  
+  <!-- JavaScript -->
+  <script src="./assets/js/main.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <!-- Botón para añadir notas -->
-    <button id="addNoteBtn" class="add-note">+ Añadir nota</button>
+  
+  <!-- Contenedor principal de la aplicación -->
+  <div class="app">
     
-    <!-- Contenedor para las notas -->
-    <div class="notes" id="notesContainer">
-      <!-- Las notas se añadirán dinámicamente aquí -->
-    </div>
+    <!-- Cabecera con botón para añadir nota -->
+    <header class="app__header">
+      <button class="app__btn-add">+ Añadir nota</button>
+    </header>
+
+    <!-- Sección donde se renderizan las notas -->
+    <section class="app__notes" id="notesContainer">
+      <!-- Las notas se insertarán dinámicamente aquí -->
+    </section>
+
   </div>
 
-  <script src="./assets/js/main.js" defer></script>
 </body>
 </html>
