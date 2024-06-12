@@ -1,0 +1,27 @@
+html{
+    font-size: 10px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+}
+
+.layout {
+    width: 100%;
+    min-height: 100%;
+    background-color: #f7f8fd;
+    padding: 3rem;
+    position: absolute;
+}
+
+.layout__main {
+    width: 100%;
+}
+
+.main__container-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
