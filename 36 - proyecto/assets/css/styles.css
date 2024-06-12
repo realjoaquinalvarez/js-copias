@@ -1,104 +1,127 @@
-/* Reset básico */
-* {
+/* --- Paleta de colores base (ejemplo) --- */
+:root {
+    --color-bg: #f9f9fc;
+    --color-primary: #ef5350; /* Rojo claro para el encabezado de la nota */
+    --color-border: #ccc;
+    --color-text: #333;
+    --color-note-bg: #e0e0e0;
+    --transition-time: 0.4s;
+  }
+  
+  /* --- Ajustes del body y contenedor principal --- */
+  body {
+    background-color: var(--color-bg);
+    font-family: Arial, sans-serif;
+    color: var(--color-text);
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
   
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f9;
-    color: #333;
-  }
-  
-  .container {
+  .app {
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 0 auto;
     padding: 20px;
   }
   
-  /* Botón para añadir nota */
-  .add-note {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #e63946;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .add-note:hover {
-    background-color: #d62839;
-  }
-  
-  /* Contenedor de las notas */
-  .notes {
+  /* --- Cabecera con botón añadir nota --- */
+  .app__header {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 20px;
+    justify-content: flex-end;
+    margin-bottom: 20px;
   }
   
-  /* Estilo de cada nota */
+  .app__btn-add {
+    background-color: var(--color-primary);
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .app__btn-add:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* --- Contenedor de notas --- */
+  .app__notes {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Para que se ajusten en varias filas si hay muchas notas */
+  }
+  
+  /* --- Estructura de la nota --- */
   .note {
-    background-color: #e6e6e6;
-    width: calc(25% - 20px); /* Ajuste para 4 notas por fila con separación */
-    min-width: 250px;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    background-color: var(--color-note-bg);
+    width: 250px;
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* Oculto al inicio para la animación de entrada */
+    transform: scale(0);
+    opacity: 0;
+    transition: transform var(--transition-time) ease, opacity var(--transition-time) ease;
   }
   
-  /* Título de cada nota */
-  .note-title {
-    font-size: 18px;
-    font-weight: bold;
+  .note.show {
+    /* Clase que se añade en JS para animar la entrada */
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .note__header {
+    background-color: var(--color-primary);
     color: #fff;
-    background-color: #e63946;
-    padding: 8px 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    padding: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   
-  /* Botón de la papelera */
-  .note-title .delete-btn {
+  .note__title {
+    font-size: 0.95rem;
+    font-weight: bold;
+  }
+  
+  .note__delete {
     background: none;
     border: none;
     color: #fff;
-    font-size: 18px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: color 0.3s ease;
   }
   
-  .note-title .delete-btn:hover {
-    color: #f3d3d3;
-  }
-  
-  /* Contenido de la nota */
-  .note-content {
-    flex: 1;
-    font-size: 14px;
-    line-height: 1.5;
+  .note__body {
     padding: 10px;
-    color: #333;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+    flex: 1; /* Para que el texto ocupe el espacio vertical sobrante */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
   }
   
-  /* Transición de eliminación */
-  .note.removed {
-    transform: scale(0.9);
+  .note__body input,
+  .note__body textarea {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 0.9rem;
+  }
+  
+  /* --- Animación de salida --- */
+  .note.hide {
+    transform: scale(0.1);
     opacity: 0;
+  }
+  
+  /* --- Ajustes de responsividad (opcional) --- */
+  @media (max-width: 600px) {
+    .app__notes {
+      justify-content: center;
+    }
   }
   
