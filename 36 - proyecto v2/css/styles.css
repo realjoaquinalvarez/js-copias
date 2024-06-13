@@ -1,0 +1,115 @@
+/* Reinicios básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    background-color: #f9fafb;
+    color: #333;
+  }
+  
+  /* Encabezado */
+  header {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #eaeaea;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #444;
+  }
+  
+  button {
+    background-color: #ff5252;
+    border: none;
+    color: #fff;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ff2e2e;
+  }
+  
+  /* Contenedor principal */
+  main {
+    padding: 2rem;
+  }
+  
+  .notes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  /* Tarjeta de la nota */
+  .note-card {
+    background-color: #fff;
+    width: 250px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  /* Efecto hover (opcional) */
+  .note-card:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Encabezado de la nota */
+  .note-header {
+    background-color: #ff5252;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .note-header h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-right: 0.5rem;
+  }
+  
+  /* Botón de borrado en la tarjeta */
+  .delete-note-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .delete-note-btn:hover {
+    color: #e3e3e3;
+  }
+  
+  /* Contenido de la nota */
+  .note-content {
+    padding: 1rem;
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  /* Animación para remover o añadir notas (ejemplo) */
+  .fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  /* Puedes añadir más animaciones o transiciones si quieres */
+  
