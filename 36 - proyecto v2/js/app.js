@@ -3,6 +3,16 @@
 let addNoteBtn = document.querySelector('#addNoteBtn');
 let notesContainer = document.querySelector('.notes-container');
 
+const loadNotes = () => {
+
+  const notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+  notes.forEach(note => {
+    addNote(note.title, note.body);
+  });
+  
+};
+
 const saveNotes = () => {
 
   let notes = [];
@@ -45,6 +55,7 @@ const addNote = ( title = '', body ='') => {
 
   let noteTitle = noteBody.querySelector('.note-title')
   let noteContent = noteBody.querySelector('.note-text')
+  let deleteBtn = noteBody.querySelector('.delete-note-btn');
 
   noteTitle.addEventListener('input', saveNotes );
   noteContent.addEventListener('input', saveNotes );
@@ -57,4 +68,4 @@ addNoteBtn.addEventListener( 'click', () => {
   addNote();
 });
 
-
+loadNotes();
