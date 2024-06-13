@@ -16,5 +16,3 @@
 // 4. Borrar notas con una transición
 // 5. Cargar notas al refrescar la página
 
-
-  

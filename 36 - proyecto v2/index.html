@@ -1,43 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Aplicación de Notas</title>
-  <link rel="stylesheet" href="./css/styles.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aplicación de Notas Futurista</title>
+    <!-- Fuente futurista (opcional) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
 
-  <script src="./js/app.js" defer></script>
-  
-</head>
-<body>
-  <header>
-    <h1>Mis notas</h1>
-    <!-- Botón para añadir una nota nueva -->
-    <button id="addNoteBtn">+ Añadir nota</button>
-  </header>
+    <script src="./js/app.js" defer></script>
+    
+  </head>
+  <body>
+    <header>
+      <h1>Mis Notas</h1>
+      <!-- Botón para añadir una nota nueva -->
+      <button id="addNoteBtn">+ Añadir nota</button>
+    </header>
 
-  <main>
-    <!-- Contenedor de todas las notas -->
-    <div class="notes-container">
-      
-      <!-- Ejemplo de nota -->
-      <div class="note-card">
-        <div class="note-header">
-          <h2>Nota de ejemplo</h2>
-          <button class="delete-note-btn" title="Borrar nota">
-            <!-- Puedes usar un ícono o emoji -->
-            <span>🗑️</span>
-          </button>
-        </div>
-        <div class="note-content">
-          <p>Este documento contiene información general sobre un tema específico que puede ser modificado según los requisitos. Asegúrate de revisar cada sección cuidadosamente para garantizar que se adapte a tus objetivos.</p>
-        </div>
+    <main>
+      <!-- Contenedor de todas las notas -->
+      <div class="notes-container">
+
       </div>
-      <!-- Fin de nota de ejemplo -->
-      
-    </div>
-  </main>
+    </main>
 
-  <!-- Enlazamos el JS (por ahora vacío excepto el enunciado) -->
-  <script src="js/app.js"></script>
-</body>
+  </body>
 </html>
