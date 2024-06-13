@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Proyecto 36</title>
   
-  <!-- Font Awesome -->
   <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -13,39 +12,35 @@
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
 />
-
-
   
-  <!-- Tus estilos -->
   <link rel="stylesheet" href="./assets/css/reset.css" />
   <link rel="stylesheet" href="./assets/css/styles.css" />
   
-  <!-- Tu script -->
   <script src="./assets/js/main.js" defer></script>
+  
 </head>
 <body>
   <div class="layout">
     <main class="layout__main">
+
       <div class="main__container-btn">
-        <!-- Notar que “fa-plux” estaba mal. Debe ser “fa-plus” -->
         <button class="main__btn">
           <i class="fa-solid fa-plus"></i>
           <span class="btn__text">Añadir nota</span>
         </button>
       </div>
       
-      <section class="main__notes">
-        <article class="notes__note">
-          <header class="note__header">
-            <input type="text" class="header__input" value="Primera nota">
-            <i class="note__icon fa-solid fa-trash"></i>
-          </header>
+      <section class="main__notes"> <!-- CONTIENE LAS NOTAS-->
 
-          <textarea class="note__body" name="body">
-            Hola que tal soy Jose A, nota de prueba
-          </textarea>
+        <article class="notes__note">
+            <!-- Primer hijo : nota 1 -->
+      
+
         </article>
+      
+    
       </section>
+      
     </main>
   </div>
 </body>
