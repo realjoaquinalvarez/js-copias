@@ -1,35 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Valoración de Curso</title>
-  <!-- Tipografía opcional de Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" 
-    rel="stylesheet"
-  >
-
-  <link rel="stylesheet" href="./assets/css/styles.css">
-  
-
-</head>
-<body>
-
-  <h1>¿Cuántas estrellas le pondrías a este curso?</h1>
-  
-  <div class="rating-container">
-    <!-- Usamos entidades HTML para estrellas: &#9733; (estrella rellena) -->
-    <span class="star">&#9733;</span>
-    <span class="star">&#9733;</span>
-    <span class="star">&#9733;</span>
-    <span class="star">&#9733;</span>
-    <span class="star">&#9733;</span>
-  </div>
-
-  <script>
-    /* 
-      ENUNCIADO PARA EL EJERCICIO EN JS:
+<!-- ENUNCIADO PARA EL EJERCICIO EN JS:
       
       1. Cuando el mouse pase por encima de una estrella (evento 'mouseover'), 
          colorea esa estrella y todas las anteriores.
@@ -47,9 +16,37 @@
       - Necesitarás diferenciar entre el "estado de hover" y el "estado de selección".
       - Usa una variable para guardar la valoración actual (p.ej. rating).
       - Cambia dinámicamente la clase de cada estrella (p.ej. 'active') para 
-        colorearlas o des-colorearlas.
-    */
-  </script>
+        colorearlas o des-colorearlas. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Valoración de Curso</title>
+  <!-- Tipografía opcional de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" 
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  
+  <script src="./assets/js/main.js" defer></script>
+
+</head>
+<body>
+
+  <h1>¿Cuántas estrellas le pondrías a este curso?</h1>
+  
+  <div class="rating-container">
+    <!-- Usamos entidades HTML para estrellas: &#9733; (estrella rellena) -->
+    <span class="star">&#9733;</span>
+    <span class="star">&#9733;</span>
+    <span class="star">&#9733;</span>
+    <span class="star">&#9733;</span>
+    <span class="star">&#9733;</span>
+  </div>
 
 </body>
 </html>
