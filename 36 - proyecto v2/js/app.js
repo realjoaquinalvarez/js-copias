@@ -28,6 +28,8 @@ const saveNotes = () => {
   
 };
 
+
+
 const addNote = ( title = '', body ='') => {
 
   let noteBody = document.createElement('div');
@@ -59,6 +61,11 @@ const addNote = ( title = '', body ='') => {
 
   noteTitle.addEventListener('input', saveNotes );
   noteContent.addEventListener('input', saveNotes );
+  deleteBtn.addEventListener('click', () => {
+    noteBody.remove();
+    saveNotes();
+  });
+
   
   notesContainer.appendChild(noteBody);
 
@@ -69,3 +76,15 @@ addNoteBtn.addEventListener( 'click', () => {
 });
 
 loadNotes();
+
+let removeAll = document.querySelector('#removeAll');
+
+removeAll.addEventListener('click', () => {
+
+  const allNotes = document.querySelectorAll(".note-card");
+  allNotes.forEach(note => {
+    note.remove();
+  });
+  saveNotes();
+  
+});
