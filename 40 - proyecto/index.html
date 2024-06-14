@@ -1,13 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title>Proyecto N</title>
+  <meta charset="UTF-8" />
+  <title>Valoración de Curso</title>
+  <!-- Tipografía opcional de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" 
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  
+
 </head>
 <body>
-    <pre>
 
-    </pre>    
+  <h1>¿Cuántas estrellas le pondrías a este curso?</h1>
+  
+  <div class="rating-container">
+    <!-- Usamos entidades HTML para estrellas: &#9733; (estrella rellena) -->
+    <span class="star">&#9733;</span>
+    <span class="star">&#9733;</span>
+    <span class="star">&#9733;</span>
+    <span class="star">&#9733;</span>
+    <span class="star">&#9733;</span>
+  </div>
+
+  <script>
+    /* 
+      ENUNCIADO PARA EL EJERCICIO EN JS:
+      
+      1. Cuando el mouse pase por encima de una estrella (evento 'mouseover'), 
+         colorea esa estrella y todas las anteriores.
+      2. Cuando el mouse deje de estar sobre las estrellas (evento 'mouseout'), 
+         todas deben volver a su estado inicial (a menos que hayan sido clicadas).
+      3. Al hacer click en una estrella (evento 'click'), se marca de forma permanente 
+         esa estrella y todas las anteriores. Debes guardar de algún modo qué estrella 
+         se clicó para que, aunque se retire el mouse, el color se mantenga en esa 
+         puntuación.
+      4. Si luego se hace click en una estrella diferente, se actualiza la puntuación 
+         y se recolorean las estrellas acorde a la nueva puntuación.
+      
+      Pistas:
+      - Recorre las estrellas con un bucle y asígnales los eventos.
+      - Necesitarás diferenciar entre el "estado de hover" y el "estado de selección".
+      - Usa una variable para guardar la valoración actual (p.ej. rating).
+      - Cambia dinámicamente la clase de cada estrella (p.ej. 'active') para 
+        colorearlas o des-colorearlas.
+    */
+  </script>
+
 </body>
 </html>
