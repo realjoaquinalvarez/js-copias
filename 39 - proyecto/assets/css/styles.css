@@ -1,12 +1,85 @@
+html {
+    font-size: 10px;
+}
+
 body {
-    background-color: rgb(27, 26, 42);
-    text-align: center;
+    font-size: 1.6rem;
+    background-color: #F7F8FD;
 }
 
-h1, p {
-    color: white;
+li {
+    list-style: none;
 }
 
-pre {
-    color: white;
+.layout__nav {
+    width: 100%;
+    background-color: #8282F6;
+    padding: 2rem;
+    transition: all 300ms linear;
 }
+
+
+.nav__list {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+
+.nav__link {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 2rem;
+    transition: all 300ms ease-in-out;
+}
+
+.nav__link:hover {
+    color: black;
+}
+
+.layout__main{
+    max-width: 128rem;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.article__title{
+    color: #494E58;
+}
+
+.article__body{
+    margin-top: 0.5rem;
+    color: #828282;
+    font-weight: 400;
+    text-align: justify;
+    margin-left: 1rem;
+}
+
+@keyframes toBottom{
+
+    0%{
+        transform: translateY(-100%);
+    }
+
+    100%{
+        transform: translateY(0%);
+    }
+
+}
+
+.layout__nav--fixed{
+    position: fixed;
+    top: 0;
+    background-color: #4c4cc0;
+    animation-name: toBottom;
+    animation-duration: 1.2s;
+    animation-fill-mode: both;
+}
+
+
+
+
+
