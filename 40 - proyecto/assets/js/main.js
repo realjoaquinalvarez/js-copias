@@ -1,12 +1,10 @@
 
 let stars = document.querySelectorAll('.star');
 
-let starCounter = 0;
 let starStorage = 0;
 
-stars.forEach(star => {
-   starCounter++;
-   let starNumber = starCounter;
+stars.forEach((star, position) => {
+   let starNumber = position + 1;
 
    star.addEventListener("mouseover", () => {
       marcarEstrella( starNumber );
@@ -35,14 +33,4 @@ const marcarEstrella = ( calificacion = 0 ) => {
    });
    
 };
-        
-const desmarcarEstrella = () => {
 
-   stars.forEach((star) => {
-
-      star.classList.remove('active');
-      
-   });
-   
-};
-        
