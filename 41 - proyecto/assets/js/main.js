@@ -1,15 +1,10 @@
+const articles = document.querySelectorAll('.noticia');
+console.log(articles);
 
-let articles = document.querySelectorAll(".noticia");
-
-let observer = new IntersectionObserver( entries => {
-    console.log(entries)
+const observer = new IntersectionObserver((entries) => {
+  console.log(entries);
 });
 
-
-
-
-
-
-
-
-
+articles.forEach((article) => {
+  observer.observe(article);
+});
