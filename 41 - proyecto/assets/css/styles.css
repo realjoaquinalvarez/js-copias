@@ -1,0 +1,94 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos para body y tipografía */
+body {
+    background-color: #f5f9fc;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Encabezado */
+header {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+/* Contenedor principal */
+main {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+}
+
+/* Tarjeta de noticia */
+.noticia {
+    background-color: #fff;
+    border: 2px solid #bdd5ea;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    /* Opcional: para animar la aparición */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Estado visible (se aplicará con JS cuando un artículo entre en pantalla) */
+.noticia.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Títulos */
+.noticia h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Texto */
+.noticia p {
+    color: #555;
+}
+
+/* Autor */
+.autor {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.icon-usuario {
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: #333;
+}
+
+.autor-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.nombre {
+    font-weight: bold;
+    color: #333;
+}
+
+.fecha {
+    font-size: 0.9rem;
+    color: #888;
+}
