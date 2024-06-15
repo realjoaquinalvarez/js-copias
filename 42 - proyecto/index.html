@@ -1,13 +1,50 @@
+<!-- Enunciado: Live User Filter
+Crear una aplicación que:
+
+Obtenga datos de usuarios aleatorios desde una API externa (https://randomuser.me/api?results=50).
+Genere dinámicamente una lista de usuarios mostrando:
+Su nombre.
+Su ubicación (ciudad y país).
+Su foto de perfil.
+Permita buscar usuarios por su nombre o ubicación escribiendo en un campo de búsqueda.
+Mientras se escribe, los usuarios que no coincidan con el término de búsqueda se ocultan dinámicamente.
+El objetivo es entender y construir el JavaScript que:
+
+Obtiene los datos de la API.
+Genera dinámicamente el contenido en el DOM.
+Filtra y actualiza la lista según el texto ingresado en el campo de búsqueda. -->
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title>Proyecto N</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="./styles.css" />
+
+  <script src="./script.js" defer></script>
+
+  <title>Live User Filter</title>
 </head>
 <body>
-    <pre>
+  
+  <div class="container">
 
-    </pre>    
+    <header class="header">
+      <h4 class="title">Live User Filter</h4>
+      <small class="subtitle">Search by name and/or location</small>
+      <input type="text" id="filter" placeholder="Search">
+    </header>
+
+    <ul id="result" class="user-list">
+      <li>
+        <h3>Loading...</h3>
+      </li>
+    </ul>
+    
+  </div>
+
 </body>
 </html>

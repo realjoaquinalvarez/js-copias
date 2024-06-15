@@ -17,13 +17,3 @@ articles.forEach((article) => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
