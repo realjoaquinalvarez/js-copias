@@ -1,4 +1,4 @@
-
+// 1. Array de productos
 const productos = [
   {
     id: 1,
@@ -26,37 +26,122 @@ const productos = [
   },
 ];
 
-function renderProductos() {
-  // Obtenemos el contenedor de productos
-  const contenedor = document.getElementById("productosContainer");
+//  Mushica bb ninahi bb concentrate okey mi amor te amo yo mash cheñolito <3
 
-  // Limpiamos el contenedor antes de agregar nuevos elementos (buena práctica)
+let carrito = [];
+ 
+function renderProductos() {
+  const contenedor = document.getElementById("products");
+  // Limpiamos por si algo estaba antes
   contenedor.innerHTML = "";
 
-  // Creamos un fragmento de documento
+  // Usamos un fragmento para optimizar inserciones múltiples
   const fragmento = document.createDocumentFragment();
 
-  // Recorremos el array de productos y generamos el HTML
   productos.forEach((producto) => {
-    // Crear un elemento div para la tarjeta del producto
+    // Creamos un div con la clase .product-card
     const card = document.createElement("div");
-    card.classList.add("product-card"); // Añadimos la clase de estilo
+    card.classList.add("product-card");
 
-    // Agregamos el contenido HTML a la tarjeta
+    // Usamos innerHTML para rellenar la tarjeta
     card.innerHTML = `
-      <img src="${producto.imagen}" alt="${producto.nombre}" />
-      <h3>${producto.nombre}</h3>
-      <p>${producto.precio.toFixed(2)}€</p>
-      <button data-id="${producto.id}">Comprar</button>
-    `;
+        <img src="${producto.imagen}" alt="${producto.nombre}" />
+        <h3>${producto.nombre}</h3>
+        <p>${producto.precio.toFixed(2)}€</p>
+        <button data-id="${producto.id}">Comprar</button>
+      `;
 
-    // Añadimos la tarjeta al fragmento
+    // Agregamos la card al fragmento
     fragmento.appendChild(card);
   });
 
-  // Insertamos todo el fragmento en el contenedor
+  // Finalmente insertamos todo el fragmento en el contenedor
   contenedor.appendChild(fragmento);
+
+  // Después de renderizar, agregamos los eventos a los botones
+  agregarEventosBotones();
 }
+
+function agregarEventosBotones(){
+    let btnDom = document.querySelectorAll('.products button');
+
+    btnDom.forEach(btn => {
+        btn.addEventListener('click', () => {
+
+            const idProducto = parseInt(btn.dataset.id);
+            anadirAlCarrito(idProducto);
+            
+        });
+    });
+    
+}
+
+function anadirAlCarrito( id ){
+
+    const producto = productos.find((p) => p.id === id);
+   
+    if(!producto) return;
+
+    const itemEnCarrito = carrito.find((item) => item.id === id);
+
+    if(itemEnCarrito){
+        itemEnCarrito.cantidad++;
+    }else{
+        carrito.push({ ...producto, cantidad: 1 });
+    }
+
+    renderCarrito()
+};
+
+function renderCarrito() {
+  const contenedorCarrito = document.getElementById("cartItems");
+  const cartTotal = document.getElementById("cartTotal");
+
+  contenedorCarrito.innerHTML = "";
+
+  if (carrito.length === 0) {
+    cartTotal.textContent = "Total: 0€";
+    return;
+  }
+
+  const fragmento = document.createDocumentFragment();
+
+  carrito.forEach((item) => {
+    const divItem = document.createElement("div");
+    divItem.classList.add("cart-item");
+
+    divItem.innerHTML = `
+      <img src="${item.imagen}" alt="${item.nombre}" />
+      <div class="cart-item-info">
+        <strong>${item.nombre}</strong>
+        <div class="cart-item-precio">${(item.precio * item.cantidad).toFixed(
+          2
+        )}€</div>
+        <div class="cart-qty">
+          <button class="restar" data-id="${item.id}">-</button>
+          <span>${item.cantidad}</span>
+          <button class="sumar" data-id="${item.id}">+</button>
+        </div>
+      </div>
+    `;
+
+    fragmento.appendChild(divItem);
+  });
+
+  contenedorCarrito.appendChild(fragmento);
+
+  
+  
+  
+}
+
+
+
+
+
+
+
+
 
 
 renderProductos();
