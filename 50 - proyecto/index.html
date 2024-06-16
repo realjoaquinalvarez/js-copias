@@ -1,13 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title>Proyecto N</title>
-</head>
-<body>
-    <pre>
+<html lang="es">
 
-    </pre>    
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda Minimalista</title>
+    <!-- Enlazamos nuestro CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Encabezado (opcional) -->
+    <header>
+        <h1>Mi Tienda</h1>
+        <button id="btnToggleCart" class="btn-cart">Carrito (0)</button>
+    </header>
+
+    <!-- Sección de productos -->
+    <main class="productos-container" id="productosContainer">
+        <!-- Aquí se inyectarán las tarjetas de productos con JS -->
+    </main>
+
+    <!-- Panel (sidebar) del carrito -->
+    <aside class="carrito" id="carrito">
+        <div class="carrito-header">
+            <h2>Mi Carrito</h2>
+            <button id="btnCerrarCarrito" class="btn-cerrar">x</button>
+        </div>
+        <div class="carrito-items" id="carritoItems">
+            <!-- Los items del carrito se renderizan aquí -->
+        </div>
+        <div class="carrito-footer">
+            <div class="total" id="carritoTotal">Total: 0€</div>
+            <button class="btn-comprar" id="btnComprarTodo">Comprar todo</button>
+        </div>
+    </aside>
+
+    <!-- Enlazamos nuestro JS -->
+    <script src="script.js"></script>
 </body>
+
 </html>
