@@ -130,18 +130,44 @@ function renderCarrito() {
 
   contenedorCarrito.appendChild(fragmento);
 
+  const total = carrito.reduce((acc, producto) => {
+
+    return acc + producto.precio * producto.cantidad, 0;
+
+  });
   
+  cartTotal.textContent = total;
   
+  agregarEventosCantidad();
+}
+
+function agregarEventosCantidad(){
+
+  const botonesSumar = document.querySelectorAll('.cart-item .sumar');
+  const botonesRestar = document.querySelectorAll('.cart-item .restar');
+  
+  botonesSumar.forEach(btn => {
+    btn.addEventListener('click', () => {
+
+      let id = parseInt(btn.dataset.id);
+      cambiarCantidad( id, 1 );
+            
+    });
+  });
+  
+  botonesRestar.forEach(btn => {
+    btn.addEventListener('click', () => {
+
+      let id = parseInt(btn.dataset.id);
+      cambiarCantidad( id, -1 );
+            
+    });
+  });
   
 }
 
+function cambiarCantidad( id, valor ){
 
-
-
-
-
-
-
-
+}
 
 renderProductos();
