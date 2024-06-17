@@ -1,45 +1,36 @@
 // ---------- Datos de productos de ejemplo ----------
+// Puedes ajustar nombres, precios e imágenes a tu gusto
 const productos = [
   {
     id: 1,
     nombre: "Camiseta",
     precio: 14.99,
-    imagen: "https://via.placeholder.com/400x300?text=Camiseta",
+    imagen: "./img/product-1.jpg",
   },
   {
     id: 2,
     nombre: "Cámara",
     precio: 49.99,
-    imagen: "https://via.placeholder.com/400x300?text=Camara",
+    imagen: "./img/product-2.jpg",
   },
   {
     id: 3,
     nombre: "Portátil",
     precio: 499.99,
-    imagen: "https://via.placeholder.com/400x300?text=Portatil",
+    imagen: "./img/product-3.jpg",
   },
   {
     id: 4,
     nombre: "Zapatillas",
     precio: 29.99,
-    imagen: "https://via.placeholder.com/400x300?text=Zapatillas",
+    imagen: "./img/product-4.jpg",
   },
 ];
 
-// ---------- Carrito en memoria (array) ----------
+// Carrito en memoria. Guardamos objetos { id, nombre, precio, cantidad, imagen }
 let carrito = [];
 
-// -------------------- Funciones de ayuda --------------------
-
-// Mostrar carrito (añade la clase 'activo' al aside)
-function mostrarCarrito() {
-  document.getElementById("carrito").classList.add("activo");
-}
-
-// Ocultar carrito (remueve la clase 'activo' del aside)
-function ocultarCarrito() {
-  document.getElementById("carrito").classList.remove("activo");
-}
+// -------------------- Funciones de carrito --------------------
 
 // Cargar carrito desde localStorage al iniciar
 function cargarCarritoDeLocalStorage() {
@@ -54,13 +45,6 @@ function guardarCarritoEnLocalStorage() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-// Calcular total del carrito
-function calcularTotal() {
-  return carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
-}
-
-// -------------------- Funciones de carrito --------------------
-
 // Añadir producto al carrito
 function anadirAlCarrito(producto) {
   // Revisar si el producto ya está en el carrito
@@ -74,33 +58,39 @@ function anadirAlCarrito(producto) {
   renderCarrito();
   actualizarBotonCarrito();
 
-  // Si el carrito tiene productos, lo mostramos
+  // Si ahora el carrito tiene productos, mostramos el panel
   if (carrito.length > 0) {
     mostrarCarrito();
   }
 }
 
-// Cambiar cantidad de un producto (incrementar o decrementar)
+// Cambiar cantidad de un producto (incremento o decremento)
 function cambiarCantidad(id, cambio) {
   const item = carrito.find((producto) => producto.id === id);
   if (!item) return;
 
   item.cantidad += cambio;
-  // Si la cantidad es 0 o negativa, eliminar el producto
+  // Eliminar producto si cantidad es 0 o menos
   if (item.cantidad <= 0) {
     carrito = carrito.filter((producto) => producto.id !== id);
   }
+
   guardarCarritoEnLocalStorage();
   renderCarrito();
   actualizarBotonCarrito();
 }
 
-// Vaciar todo el carrito
+// Vaciar el carrito (ej. al comprar o manualmente)
 function vaciarCarrito() {
   carrito = [];
   guardarCarritoEnLocalStorage();
   renderCarrito();
   actualizarBotonCarrito();
+}
+
+// Calcular total
+function calcularTotal() {
+  return carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 }
 
 // -------------------- Render de productos y carrito --------------------
@@ -121,7 +111,7 @@ function renderProductos() {
       <button data-id="${producto.id}">Comprar</button>
     `;
 
-    // Evento para el botón "Comprar"
+    // EventListener para el botón
     const btn = card.querySelector("button");
     btn.addEventListener("click", () => anadirAlCarrito(producto));
 
@@ -129,7 +119,7 @@ function renderProductos() {
   });
 }
 
-// Mostrar/actualizar el contenido del carrito
+// Mostrar los items del carrito en la barra lateral
 function renderCarrito() {
   const itemsContainer = document.getElementById("carritoItems");
   itemsContainer.innerHTML = "";
@@ -142,9 +132,7 @@ function renderCarrito() {
       <img src="${item.imagen}" alt="${item.nombre}"/>
       <div class="carrito-item-info">
         <strong>${item.nombre}</strong>
-        <div class="carrito-item-precio">
-          ${(item.precio * item.cantidad).toFixed(2)}€
-        </div>
+        <div class="carrito-item-precio">${(item.precio * item.cantidad).toFixed(2)}€</div>
         <div class="carrito-qty">
           <button class="restar">-</button>
           <span>${item.cantidad}</span>
@@ -163,11 +151,11 @@ function renderCarrito() {
     itemsContainer.appendChild(itemDiv);
   });
 
-  // Actualizamos el total
+  // Actualizamos total
   const total = calcularTotal();
   document.getElementById("carritoTotal").textContent = `Total: ${total.toFixed(2)}€`;
 
-  // Si el carrito está vacío, lo ocultamos
+  // Si el carrito está vacío, lo ocultamos directamente
   if (carrito.length === 0) {
     ocultarCarrito();
   }
@@ -180,24 +168,32 @@ function actualizarBotonCarrito() {
   btnCart.textContent = `Carrito (${totalItems})`;
 }
 
+// -------------------- Lógica de mostrar/ocultar carrito --------------------
+
+function mostrarCarrito() {
+  document.getElementById("carrito").classList.add("activo");
+}
+
+function ocultarCarrito() {
+  document.getElementById("carrito").classList.remove("activo");
+}
+
 // -------------------- Eventos principales --------------------
 document.addEventListener("DOMContentLoaded", () => {
-  // Cargamos el carrito de localStorage
+  // Cargamos el carrito de localStorage y renderizamos
   cargarCarritoDeLocalStorage();
-
-  // Renderizamos productos y carrito
   renderProductos();
   renderCarrito();
   actualizarBotonCarrito();
 
-  // Botón del header para abrir/cerrar carrito manualmente
+  // Botón del header para abrir/cerrar carrito
   const btnToggleCart = document.getElementById("btnToggleCart");
   btnToggleCart.addEventListener("click", () => {
-    const carritoAside = document.getElementById("carrito");
-    carritoAside.classList.contains("activo") ? ocultarCarrito() : mostrarCarrito();
+    const carrito = document.getElementById("carrito");
+    carrito.classList.contains("activo") ? ocultarCarrito() : mostrarCarrito();
   });
 
-  // Botón para cerrar el carrito (la X)
+  // Botón de Cerrar (x)
   const btnCerrarCarrito = document.getElementById("btnCerrarCarrito");
   btnCerrarCarrito.addEventListener("click", () => {
     ocultarCarrito();
@@ -206,8 +202,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Botón "Comprar todo"
   const btnComprarTodo = document.getElementById("btnComprarTodo");
   btnComprarTodo.addEventListener("click", () => {
+    // Podrías mostrar un alert o notificación
     alert("¡Gracias por tu compra!");
     vaciarCarrito();
-    // Después de vaciar, se re-renderiza el carrito y se oculta si está vacío
+    ocultarCarrito();
   });
 });
