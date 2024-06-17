@@ -130,14 +130,13 @@ function renderCarrito() {
 
   contenedorCarrito.appendChild(fragmento);
 
-  const total = carrito.reduce((acc, producto) => {
-
-    return acc + producto.precio * producto.cantidad, 0;
-
-  });
+  const total = carrito.reduce(
+    (acc, prod) => acc + prod.precio * prod.cantidad,
+    0
+  );
   
-  cartTotal.textContent = total;
-  
+  cartTotal.textContent = total + '€';
+  console.log(total)
   agregarEventosCantidad();
 }
 
@@ -168,6 +167,19 @@ function agregarEventosCantidad(){
 
 function cambiarCantidad( id, valor ){
 
+  const producto = carrito.find(( elemento ) => elemento.id === id )
+  if(!producto) return;
+
+  producto.cantidad += valor;
+
+  if( producto.cantidad <= 0 ){
+    carrito = carrito.filter((item) => item.id !== id );
+  }
+  
+  renderCarrito();
 }
+
+
+
 
 renderProductos();
