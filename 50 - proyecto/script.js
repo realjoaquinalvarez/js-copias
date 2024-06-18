@@ -135,7 +135,7 @@ function renderCarrito() {
     0
   );
   
-  cartTotal.textContent = total + '€';
+  cartTotal.textContent = `Total: ${total.toFixed(2)}€`;
   console.log(total)
   agregarEventosCantidad();
 }
