@@ -182,4 +182,17 @@ function cambiarCantidad( id, valor ){
 
 
 
-renderProductos();
+document.addEventListener("DOMContentLoaded", () => {
+  renderProductos();
+
+  const btnCheckout = document.getElementById("btnCheckout");
+  btnCheckout.addEventListener("click", () => {
+    if (carrito.length > 0) {
+      alert("¡Gracias por tu compra!");
+      carrito = [];
+      renderCarrito(); 
+    } else {
+      alert("El carrito está vacío");
+    }
+  });
+});
